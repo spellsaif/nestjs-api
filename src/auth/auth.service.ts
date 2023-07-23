@@ -13,7 +13,10 @@ export class AuthService {
     async register(data: RegisterDTO) {
         const user = await this.prisma.user.findFirst({
             where: {
-                email: data.email
+                OR: [
+                    { email: data.email },
+                    { username: data.username }
+                ]
             }
         })
 
