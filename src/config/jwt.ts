@@ -1,5 +1,5 @@
 
 export const jwtConfig = {
-    secret: process.env.JWT_SECRET,
+    secret: "thisistestsecret",
     expired: 3600
 }
