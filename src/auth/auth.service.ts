@@ -55,7 +55,7 @@ export class AuthService {
         }
 
         const accessToken = this.generateJwt({
-            sub: user.id,
+            id: user.id,
             name: user.username,
             email: user.email
         })
