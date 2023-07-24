@@ -74,4 +74,6 @@ export class AuthService {
             expiresIn: jwtConfig.expired
         })
     }
+
+
 }

@@ -1,4 +1,5 @@
-import { Body, Controller, HttpCode, Post } from "@nestjs/common";
+import { Body, Controller, Get, HttpCode, Post, UseGuards } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
 import { AuthService } from "./auth.service";
 import LoginDTO from "./dto/login.dto";
 import RegisterDTO from "./dto/register.dto";
@@ -7,6 +8,12 @@ import RegisterDTO from "./dto/register.dto";
 export class AuthController {
 
     constructor(private authService: AuthService) { }
+
+    @Get()
+    @UseGuards(AuthGuard('jwt'))
+    user() {
+        return "this is protected!"
+    }
 
     @Post('register')
     register(@Body() registerDTO: RegisterDTO) {
