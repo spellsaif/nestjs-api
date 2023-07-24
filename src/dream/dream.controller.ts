@@ -12,7 +12,7 @@ export class DreamController {
   @Post()
   @UseGuards(JwtGuard)
   create(@Req() req, @Body() createDreamDto: CreateDreamDto) {
-    return this.dreamService.create(createDreamDto, req.id);
+    return this.dreamService.create(createDreamDto, req.user.id);
   }
 
   @Get()
